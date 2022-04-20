@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas2</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+  <div class="container" style="background-color:aliceblue;">
+    <h1 style="text-align: center; color: blueviolet;">Ventas</h1>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/ventas3.jpg" class="d-block w-100" height="300">
+        </div>
+        <div class="carousel-item">
+          <img src="images/venta2.png" class="d-block w-100" height="300">
+        </div>
+        <div class="carousel-item">
+          <img src="images/ventas1.png" class="d-block w-100" height="300">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+          aria-valuemin="0" aria-valuemax="100" style="width: 75%">Progeso 75%</div>
+      </div>
+    </div>
+    <div class="formulario">
+      <form>
+        <fieldset>
+          <div class="mb-3">
+            <label for="nombre" class="form-label" style="color: #8a2be2;">Nombre vendedor</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Ingrese el nombre">
+            <span id="mensnombre" style="color: rgb(59, 55, 66);"></span>
+          </div>
+          <div class="mb-3">
+            <label for="valor" class="form-label" style="color: blueviolet;">Valor venta</label>
+            <input type="text" id="valor" class="form-control" placeholder="Ingrese el valor dela venta">
+            <span id="mensvalor" style="color: rgb(59, 55, 66);"></span>
+          </div>
+          <div class="mb-3">
+            <label for="salario" class="form-label" style="color: blueviolet;">Salario Básico</label>
+            <input type="text" id="salario" class="form-control" placeholder="Digite el salario">
+            <span id="menssalario" style="color: rgb(59, 55, 66);"></span>
+          </div>
+          <div class="mb-3">
+            <label for="zona" class="form-label" style="color: blueviolet;">zona</label>
+            <select id="zona" class="form-select" style="background-color: rgb(168, 156, 179);">
+              <option value="norte">Norte</option>
+              <option value="sur">Sur</option>
+              <option value="oriente">Oriente</option>
+              <option value="occidente">Occidente</option>
+            </select>
+          </div>
+          <label for="descuento" class="form-label" style="color: blueviolet;">Descuento</label>
+          <span id="descuento" class="form-label"></span>
+
+
+          <div class="mb-3">
+            <label for="comision" class="form-label" style="color: blueviolet;">Total Comision</label>
+            <input type="text" id="comision" class="form-control" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="total_pagar" class="form-label" style="color: blueviolet;">Total a pagar</label>
+            <input type="text" id="total_pagar" class="form-control" readonly>
+          </div>
+          <button type="button" class="btn btn-outline-success" id="calcular">calcular</button>
+          <button type="reset" class="btn btn-outline-danger">Limpiar</button>
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+  <script>
+    let valor = document.getElementById('valor');
+    let salario = document.getElementById('salario');
+    let zona = document.getElementById('zona');
+    let descuento = document.getElementById('descuento');
+    let comision = document.getElementById('comision');
+    let total_pagar = document.getElementById('total_pagar')
+    let calcular = document.getElementById('calcular');
+
+    nombre.onfocus = () => {
+      mensnombre.innerHTML = "<b> * El nombre </b> es obligatorio";
+
+    }
+    nombre.onblur = function () {
+      mensnombre.innerText = ""
+    }
+    valor.addEventListener('focus', () => {
+      mensvalor.textContent = "* El valor de la venta es obligatorio";
+    }
+    )
+    valor.addEventListener('blur', function () {
+      mensvalor.innerText = "";
+    })
+    salario.onfocus = () => {
+      menssalario.innerHTML = "<b> * El salario basico </b> es obligatorio";
+
+    }
+    salario.onblur = function () {
+      menssalario.innerText = ""
+    }
+    zona.onchange = () => {
+      switch (zona.value) {
+        case "norte":
+          descuento.textContent = 2 / 100;
+
+          break;
+        case "sur":
+          descuento.innerText = 3 / 100;
+
+          break;
+        case "oriente":
+          descuento.textContent = 4 / 100;
+          break;
+        case "occidente":
+          descuento.innerText = 5 / 100;
+          break;
+
+
+
+      }
+    }
+
+    calcular.addEventListener('click', () => {
+      let mporcent = parseFloat(valor.value) * parseFloat(descuento.textContent);
+      comision.value = mporcent;
+      let nporc = parseFloat(comision.value) + parseFloat(salario.value)
+      total_pagar.value = nporc;
+    })
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

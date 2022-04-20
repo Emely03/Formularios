@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas</title> 
+</head>
+<body>
+   <h1 style="color: blueviolet;">ventas</h1> 
+   <form >
+     <label for="nombre">Nombre Vendedor</label>  
+     <input type="text" id="nombre" name="nombre">
+     <span id="mensnombre" style="color: blueviolet;"></span>
+     <br>
+     <br>
+     <label for="valor">valor de la venta</label>  
+     <input type="text" id="valor" name="valor">
+     <span id="mensvalor" style="color:blueviolet"></span>
+     <br>
+     <br>
+     <label for="salario">Salario Basico</label>  
+     <input type="text" id="salario" name="salario">
+     <span id="menssalario" style="color:blueviolet"></span>
+     <br>
+     <br>
+     <div>
+     <label for="zona">Zona</label>
+     <select name="zona" id="zona">
+         <option  value="norte">norte</option>
+         <option  value="sur">sur</option>
+         <option  value="oriente">oriente</option>
+         <option value="occidente">occidente</option>
+         <span id="menszona" style="color:blueviolet"></span>
+     </select>
+    </div>
+    <label for="descuento" >descuento</label>
+    <span id="descuento" ></span>
+    <div>
+      <label for="comision" >valor comision</label>
+      <input type="text" id="comision"  readonly>
+    </div>
+    <br>
+    <div >
+      <label for="total" >Total pagar</label>
+      <input type="text" id="total"  readonly>
+    </div>
+     <br>
+     <br>
+     <button id="calcular" type="button">Calcular comisión</button>
+     <button  id="limpiar" type="reset" >limpiar</button>
+   </form>
+   <script src="Js/ventas.js"> </script>
+</body>
+</html>
